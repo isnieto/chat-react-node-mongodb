@@ -39,4 +39,4 @@ Add the ability to create multiple chat rooms, and manage persistence in mongoDB
 
 - Enviroment variable are for exercise purposes under .env_template
 - jwt credential are also unser 'credentials.txt'. This file hast to be placed in following folder ./server/app/. Its name has to be modified to 'jwt.keys.json'
--
+
