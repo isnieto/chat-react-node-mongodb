@@ -15,6 +15,8 @@ Exercise to build a Chat application with Socket.io (Javascript library) for rea
 ## Tech/framework used
 <b>Frontend</b>
 - [React](https://es.reactjs.org/)
+
+
 <b>Backend</b>
 - [Node](https://nodejs.org/es/)
 - [Express](https://expressjs.com/es/)
