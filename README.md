@@ -35,8 +35,8 @@ Add the ability to create multiple chat rooms, and manage persistence in mongoDB
 - Level III : Perform the project with TypeScript. Surprise the mentor: add any functionality you see useful or customization in front you want;)
 
 
-## Observations:
+## Credentials:
 
-- Enviroment variable are for exercise purposes under .env_template
-- jwt credential are also unser 'credentials.txt'. This file hast to be placed in following folder ./server/app/. Its name has to be modified to 'jwt.keys.json'
+- Enviroment variables are for exercise purposes under ./server/env_template
+- jwt credentials are also under './server/credentials.txt'. This file hast to be placed in following folder ./server/app/. Its name has to be modified to 'jwt.keys.json'
 
