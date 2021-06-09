@@ -1,0 +1,89 @@
+.formOuterContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 75vh;
+  align-items: center;
+  background-color: #343f56;
+}
+
+.formInnerContainer {
+  width: 20%;
+}
+
+.formInput {
+  border-radius: 5;
+  padding: 20px;
+  margin: 20px 20px 20px 0px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.heading {
+  color: white;
+  font-size: 2.5em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(53, 51, 44);
+  opacity: 1; /* Firefox */
+  font-size: 12px;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgb(53, 51, 44);
+  font-size: 12px;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgb(53, 51, 44);
+  font-size: 12px;
+}
+
+.labelText {
+  color: white;
+}
+
+.link {
+  color: rgb(255, 208, 0);
+}
+
+#warning {
+  color: #f54748;
+}
+
+.button {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #fb9300;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  width: 100%;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .formOuterContainer {
+    height: 100%;
+  }
+
+  .formInnerContainer {
+    width: 90%;
+  }
+}
+
+button:focus {
+  outline: 0;
+}
