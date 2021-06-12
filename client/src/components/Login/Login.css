@@ -74,6 +74,20 @@
   margin-top: 20px;
 }
 
+hr {
+  display: block;
+  margin-before: 0.5em;
+  margin-after: 0.5em;
+  margin-start: auto;
+  margin-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+}
+h5 {
+  color: white;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
   .formOuterContainer {
     height: 100%;
