@@ -38,9 +38,7 @@ export default function Login({ setToken }) {
     <div className="formOuterContainer">
       <div className="formInnerContainer">
         <h1 className="heading">Login</h1>
-        <div class="g-signin2" data-width="375" data-height="50" data-longtitle="true" data-onsuccess="onSignIn"></div>
-        <h5>or</h5>
-        <h5>Login with your username and password</h5>
+        <h5>Use your username and password</h5>
         <form onSubmit={handleSubmit}>
           <label>
             <input
@@ -64,6 +62,9 @@ export default function Login({ setToken }) {
             </button>
           </div>
         </form>
+        <p id="warning">{msg}</p>
+        <h5>or</h5>
+        <div class="g-signin2" data-width="375" data-height="50" data-longtitle="true" data-onsuccess="onSignIn"></div>
         <p className="labelText">
           Don´t have an account?{" "}
           <a href="/signup" className="link">
@@ -71,7 +72,6 @@ export default function Login({ setToken }) {
             Signup
           </a>
         </p>
-        <p id="warning">{msg}</p>
       </div>
     </div>
   );
