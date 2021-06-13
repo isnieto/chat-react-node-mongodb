@@ -88,6 +88,17 @@ h5 {
   color: white;
 }
 
+@media only screen and (min-width: 992px){
+  .formOuterContainer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+    background-color: #343f56;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
   .formOuterContainer {
     height: 100%;

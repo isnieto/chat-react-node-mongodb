@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import userAuth from "../../services/userAuth";
 import { useAppContext } from "../../services/contextLib.js";
+import LoginHooks from "./LoginHook";
+import LogoutHook from "./LogoutHook";
 import "./Login.css";
 
 export default function Login({ setToken }) {
@@ -64,7 +66,9 @@ export default function Login({ setToken }) {
         </form>
         <p id="warning">{msg}</p>
         <h5>or</h5>
-        <div class="g-signin2" data-width="375" data-height="50" data-longtitle="true" data-onsuccess="onSignIn"></div>
+        {/* <div class="g-signin2" data-width="375" data-height="50" data-longtitle="true" data-onsuccess="onSignIn"></div> */}
+        <LoginHooks />
+        <LogoutHook />
         <p className="labelText">
           Don´t have an account?{" "}
           <a href="/signup" className="link">
