@@ -30,6 +30,23 @@ const userAuth = {
       return alert(e);
     }
   },
+
+  googleAuth: async(googleData) =>{
+    try {
+      const response = await fetch("http://localhost:5000/auth/google", {
+        method: "POST",
+        body: JSON.stringify({
+        token: googleData.tokenId
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    return response.json();
+    } catch (e) {
+      return alert(e);
+    }
+  }
 };
 
 

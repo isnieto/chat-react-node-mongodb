@@ -6,8 +6,8 @@ import useToken from "./services/useToken";
 import Header from "./components/Header/Header";
 import Login from "./components/Login/Login";
 import Signup from "./components/Login/Signup";
-import {Join, Chat} from './components/'
-import error404 from './pages/error404'
+import { Join, Chat } from "./components/";
+import error404 from "./pages/error404";
 import "./App.css";
 
 export default function App() {

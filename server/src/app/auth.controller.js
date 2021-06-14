@@ -3,7 +3,10 @@
 "use strict";
 const bcrypt = require("bcryptjs");
 const User = require("../models/user.model.js");
-const { JWT } = require("google-auth-library");
+const { JWT, OAuth2Client } = require("google-auth-library");
+
+const { CLIENT_ID } = require("../config/index.js");
+const client = new OAuth2Client(CLIENT_ID);
 
 module.exports = {
   // Create one user
@@ -80,5 +83,23 @@ module.exports = {
     } catch (error) {
       return error;
     }
+  },
+
+  // User Log in with Google
+  googleLogIn: async (req, res) => {
+    const { token } = req.body;
+    console.log("reqboy", JSON.stringify(req.body))
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: CLIENT_ID,
+    });
+    const { name, email, picture } = ticket.getPayload();
+    const user = await db.user.upsert({
+      where: { email: email },
+      update: { name, picture },
+      create: { name, email, picture },
+    });
+    res.status(201);
+    res.json(user);
   },
 };

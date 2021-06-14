@@ -16,4 +16,6 @@ module.exports = (app) => {
   app.post("/auth/signup", checkDuplicates, authController.registerOne);
   // Login for player
   app.post("/auth/login", authController.logIn);
+  // Google login
+  app.post("/auth/google", authController.googleLogIn);
 };
