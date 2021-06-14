@@ -65,8 +65,6 @@ export default function Login({ setToken }) {
           </div>
         </form>
         <p id="warning">{msg}</p>
-        <h5>or</h5>
-        <LoginHooks />
         <p className="labelText">
           Don´t have an account?{" "}
           <a href="/signup" className="link">
@@ -74,6 +72,8 @@ export default function Login({ setToken }) {
             Signup
           </a>
         </p>
+        <h5>or</h5>
+        <LoginHooks setToken={setToken}/>
       </div>
     </div>
   );

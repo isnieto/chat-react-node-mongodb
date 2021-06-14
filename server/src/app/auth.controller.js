@@ -6,6 +6,7 @@ const User = require("../models/user.model.js");
 const { JWT, OAuth2Client } = require("google-auth-library");
 
 const { CLIENT_ID } = require("../config/index.js");
+
 const client = new OAuth2Client(CLIENT_ID);
 
 module.exports = {
@@ -87,19 +88,31 @@ module.exports = {
 
   // User Log in with Google
   googleLogIn: async (req, res) => {
-    const { token } = req.body;
-    console.log("reqboy", JSON.stringify(req.body))
-    const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: CLIENT_ID,
-    });
-    const { name, email, picture } = ticket.getPayload();
-    const user = await db.user.upsert({
-      where: { email: email },
-      update: { name, picture },
-      create: { name, email, picture },
-    });
-    res.status(201);
-    res.json(user);
+    try {
+      
+      const ticket = await client.verifyIdToken({
+        idToken: req.body.token,
+        audience: CLIENT_ID,
+      });
+      //console.log("HASTA AQUI", ticket);
+      const payload = ticket.getPayload();
+      const userid = payload['sub'];
+      //const { name, email } = ticket.getPayload();
+      /* const user = await db.user.upsert({
+        where: { email: email },
+        update: { name, picture },
+        create: { name, email, picture },
+      }); */
+
+      // Check if already user in databse
+      // if not, signup and send acess toekn
+      // if already, send access token directly.
+      res.status(201);
+      res.json(userid);
+      // console.log(JSON.stringify(userid))
+
+    } catch (error) {
+      return error;
+    }
   },
 };

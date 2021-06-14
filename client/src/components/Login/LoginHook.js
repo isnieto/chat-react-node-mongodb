@@ -1,7 +1,6 @@
 import React from "react";
 import { useGoogleLogin } from "react-google-login";
 import userAuth from "../../services/userAuth";
-
 import "./LoginHook.css";
 
 // refresh token
@@ -10,15 +9,14 @@ import "./LoginHook.css";
 const clientId =
   "939804069180-elschdt94i4gs0jqf1r2lvm8g95fvim3.apps.googleusercontent.com";
 
-function LoginHooks() {
+export default function LoginHooks({ setToken }) {
   const onSuccess = (res) => {
-    console.log("Login Success: currentUser:", res);
-    /* alert(
-      `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-    ); */
-    //refreshTokenSetup(res);
-    const tokenData = userAuth.googleAuth({res});
-    
+    const data = res.getAuthResponse().id_token;
+    const tokenData = userAuth.googleAuth({ data });
+    if (tokenData === 201) {
+      setToken(tokenData);
+      console.log("SETTOKEN", tokenData)
+    }
   };
 
   const onFailure = (res) => {
@@ -44,4 +42,3 @@ function LoginHooks() {
   );
 }
 
-export default LoginHooks;

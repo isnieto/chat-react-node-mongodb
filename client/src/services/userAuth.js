@@ -31,23 +31,23 @@ const userAuth = {
     }
   },
 
-  googleAuth: async(googleData) =>{
+  // Send token ID to AI to register new user or confirm user
+  googleAuth: async (googleData) => {
     try {
+      console.log("con data", googleData.data);
       const response = await fetch("http://localhost:5000/auth/google", {
         method: "POST",
-        body: JSON.stringify({
-        token: googleData.tokenId
-      }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    return response.json();
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: googleData.data }),
+      });
+      console.log("respuesta de backend", response.status);
+      return response.status;
     } catch (e) {
       return alert(e);
     }
-  }
+  },
 };
-
 
 export default userAuth;
