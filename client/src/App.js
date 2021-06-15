@@ -23,7 +23,7 @@ export default function App() {
           <Router>
             <Switch>
               <Route exact path="/">
-                <Login setToken={setToken, withGoogle} />
+                <Login setToken={setToken} />
               </Route>
               <Route exact path="/signup">
                 <Signup />

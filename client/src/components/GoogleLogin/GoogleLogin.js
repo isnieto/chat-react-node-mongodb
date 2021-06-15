@@ -12,7 +12,7 @@ import "./GoogleLogin.css";
 const clientId =
   "939804069180-elschdt94i4gs0jqf1r2lvm8g95fvim3.apps.googleusercontent.com";
 
-export default function GoogleLogin({ withGoogle }) {
+export default function GoogleLogin() {
   const { userHasAuthenticated } = useAppContext();
   //const history = useHistory();
 

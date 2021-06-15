@@ -23,21 +23,7 @@ export default function Header() {
   return (
     <header>
       <h1>Chat App</h1>
-      {/*  {isAuthenticated && !isGoogle ? (
-        <nav>
-          <ul>
-            <li>
-              <a href="/" onClick={handleLogout}>
-                Logout <img class="icon" src={closeIcon} alt="close icon" />
-              </a>
-            </li>
-          </ul>
-        </nav>
-      ) : isGoogle ? (
-        <div>
-          <LogoutHook />
-        </div>
-      ) : null} */}
+    
       {isAuthenticated ? (
         <nav>
           <ul>
