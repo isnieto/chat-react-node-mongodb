@@ -6,9 +6,9 @@ import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 import "./Login.css";
 
-export default function Login({ setToken }) {
+export default function Login({ setToken, withGoogle }) {
   const { userHasAuthenticated } = useAppContext();
-  const [isGoogle, withGoogle] = useState(false);
+  //const [isGoogle, withGoogle] = useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
@@ -26,9 +26,7 @@ export default function Login({ setToken }) {
         });
         if (tokenData.token) {
           userHasAuthenticated(true);
-          //console.log("Autenticado", userHasAuthenticated())
           setToken(tokenData);
-          withGoogle(false);
         } else {
           // Not token received
           setMsg(tokenData.message);

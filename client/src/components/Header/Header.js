@@ -12,7 +12,7 @@ import closeIcon from "../../images/source_icons_web-window-close.svg";
 export default function Header() {
   const history = useHistory();
   const { isAuthenticated, userHasAuthenticated } = useAppContext();
-  const { isGoogle } = useAppContext();
+  const { isGoogle, withGoogle } = useAppContext();
 
   function handleLogout() {
     userHasAuthenticated(false);
@@ -38,11 +38,7 @@ export default function Header() {
           <LogoutHook />
         </div>
       ) : null} */}
-      {isGoogle ? (
-        
-          <LogoutHook />
-        
-      ) : isAuthenticated && !isGoogle ? (
+      {isAuthenticated ? (
         <nav>
           <ul>
             <li>
@@ -51,8 +47,12 @@ export default function Header() {
               </a>
             </li>
           </ul>
-        </nav>
-      ) : null}
+        </nav>)
+        : isGoogle ? (
+        
+          <LogoutHook />
+        
+      )  : null}
     </header>
   );
 }
