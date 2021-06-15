@@ -8,6 +8,7 @@ import "./Login.css";
 
 export default function Login({ setToken }) {
   const { userHasAuthenticated } = useAppContext();
+  const [isGoogle, withGoogle] = useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
@@ -25,8 +26,9 @@ export default function Login({ setToken }) {
         });
         if (tokenData.token) {
           userHasAuthenticated(true);
-          console.log("Autenticado", userHasAuthenticated())
+          //console.log("Autenticado", userHasAuthenticated())
           setToken(tokenData);
+          withGoogle(false);
         } else {
           // Not token received
           setMsg(tokenData.message);
@@ -64,25 +66,19 @@ export default function Login({ setToken }) {
               ENTER
             </button>
           </div>
+          <div>
+            <p id="warning">{msg}</p>
+            <p className="labelText">
+              Don´t have an account?{" "}
+              <a href="/signup" className="link">
+                {" "}
+                Signup
+              </a>
+            </p>
+            <h5>or</h5>
+            <GoogleLogin withGoogle={withGoogle} />
+          </div>
         </form>
-        <p id="warning">{msg}</p>
-        <p className="labelText">
-          Don´t have an account?{" "}
-          <a href="/signup" className="link">
-            {" "}
-            Signup
-          </a>
-        </p>
-        <h5>or</h5>
-        {/* <p className="labelText">
-          Log in with Google{" "}
-          <a href="/googlelogin" className="link">
-            {" "}
-            Log in
-          </a>
-        </p> */}
-          <GoogleLogin />
-        
       </div>
     </div>
   );

@@ -5,6 +5,8 @@
   height: 75vh;
   align-items: center;
   background-color: #343f56;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .formInnerContainer {

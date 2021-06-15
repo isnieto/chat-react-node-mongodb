@@ -1,26 +1,4 @@
 
-.formOuterContainer {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  align-items: center;
-  background-color: #343f56;
-  padding:50px
-}
-
-.formInnerContainer {
-  width: 20%;
-}
-
-.formInput {
-  border-radius: 5;
-  padding: 20px;
-  margin: 20px 20px 20px 0px;
-  border-radius: 5px;
-  width: 100%;
-}
-
 .heading {
   color: white;
   font-size: 2.5em;
@@ -57,19 +35,6 @@
 
 #warning {
   color: #f54748;
-}
-
-.button {
-  color: #fff !important;
-  text-transform: uppercase;
-  text-decoration: none;
-  background: #fb9300;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 5px;
-  display: inline-block;
-  border: none;
-  width: 100%;
 }
 
 .mt-20 {
@@ -115,9 +80,8 @@ button:focus {
   outline: 0;
 }
 
-button{
-  margin-bottom: 20px;
-}
+
+
 #customBtn {
   display: inline-block;
   background: white;
@@ -127,7 +91,6 @@ button{
   border: thin solid #888;
   box-shadow: 1px 1px 1px grey;
   white-space: nowrap;
-
 }
 #customBtn:hover {
   cursor: pointer;
@@ -136,8 +99,8 @@ button{
 .icon {
   display: inline-block;
   vertical-align: middle;
-  width: 42px;
-  height: 42px;
+  width: 35px;
+  height: 35px;
 }
 span.buttonText {
   display: inline-block;

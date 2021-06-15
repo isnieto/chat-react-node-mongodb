@@ -12,25 +12,22 @@ import "./GoogleLogin.css";
 const clientId =
   "939804069180-elschdt94i4gs0jqf1r2lvm8g95fvim3.apps.googleusercontent.com";
 
-export default function GoogleLogin() {
+export default function GoogleLogin({ withGoogle }) {
   const { userHasAuthenticated } = useAppContext();
   //const history = useHistory();
-
-
 
   const onSuccess = (res) => {
     const data = res.getAuthResponse().id_token;
     const tokenData = userAuth.googleAuth({ data });
-    console.log("Id", tokenData)
     if (tokenData) {
-          userHasAuthenticated(true);
-          //setToken(tokenData);
-          //history.push("/");
-        } 
+      userHasAuthenticated(true);
+      withGoogle(true);
+      console.log("Google!!!!")
+    }
   };
 
   const onFailure = (res) => {
-    console.log("Login failed: res:", res);
+    console.log("Login failed. res:", res);
     //alert(`Failed to login. 😢 `);
   };
 
@@ -45,32 +42,12 @@ export default function GoogleLogin() {
   });
 
   return (
-    <div className="formOuterContainer">
-      <div className="formInnerContainer">
+    
         <button onClick={signIn} className="customBtn">
           <img src="./google.svg" alt="google login" className="icon"></img>
           <span className="buttonText">Sign in with Google</span>
         </button>
-        <p className="labelText">
-          Don´t have an account?{" "}
-          <a href="/signup" className="link">
-            {" "}
-            Signup
-          </a>
-        </p>
-        <p className="labelText">
-          Log in with your own username and password?{" "}
-          <a href="/" className="link">
-            {" "}
-            Login
-          </a>
-        </p>
-      </div>
-    </div>
+   
   );
 }
 
-
-/* GoogleLogin.propTypes = {
-  setToken: PropTypes.func.isRequired,
-}; */

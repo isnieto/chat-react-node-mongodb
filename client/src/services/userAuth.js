@@ -41,7 +41,6 @@ const userAuth = {
         },
         body: JSON.stringify({ token: googleData.data }),
       });
-      console.log("respuesta de backend", response);
       return response;
     } catch (e) {
       return alert(e);
