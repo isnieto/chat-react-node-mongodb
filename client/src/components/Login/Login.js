@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import userAuth from "../../services/userAuth";
 import { useAppContext } from "../../services/contextLib.js";
-import LoginHooks from './LoginHook';
+import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 import "./Login.css";
 
@@ -25,6 +25,7 @@ export default function Login({ setToken }) {
         });
         if (tokenData.token) {
           userHasAuthenticated(true);
+          console.log("Autenticado", userHasAuthenticated())
           setToken(tokenData);
         } else {
           // Not token received
@@ -73,7 +74,15 @@ export default function Login({ setToken }) {
           </a>
         </p>
         <h5>or</h5>
-        <LoginHooks setToken={setToken}/>
+        {/* <p className="labelText">
+          Log in with Google{" "}
+          <a href="/googlelogin" className="link">
+            {" "}
+            Log in
+          </a>
+        </p> */}
+          <GoogleLogin />
+        
       </div>
     </div>
   );

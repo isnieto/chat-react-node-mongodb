@@ -5,6 +5,7 @@ import useToken from "./services/useToken";
 // Page components
 import Header from "./components/Header/Header";
 import Login from "./components/Login/Login";
+//import GoogleLogin from "./components/GoogleLogin/GoogleLogin";
 import Signup from "./components/Login/Signup";
 import { Join, Chat } from "./components/";
 import error404 from "./pages/error404";
@@ -14,9 +15,10 @@ export default function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
   const { token, setToken } = useToken();
 
-  if (!token) {
+  if (isAuthenticated === false) {
     return (
       <div className="wrapper">
+      
         <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
           <Header />
           <Router>
@@ -24,6 +26,9 @@ export default function App() {
               <Route exact path="/">
                 <Login setToken={setToken} />
               </Route>
+              {/* <Route exact path="/googlelogin">
+                <GoogleLogin />
+              </Route> */}
               <Route exact path="/signup">
                 <Signup />
               </Route>

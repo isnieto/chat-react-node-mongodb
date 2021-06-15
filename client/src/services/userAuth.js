@@ -34,7 +34,6 @@ const userAuth = {
   // Send token ID to AI to register new user or confirm user
   googleAuth: async (googleData) => {
     try {
-      console.log("con data", googleData.data);
       const response = await fetch("http://localhost:5000/auth/google", {
         method: "POST",
         headers: {
@@ -42,8 +41,8 @@ const userAuth = {
         },
         body: JSON.stringify({ token: googleData.data }),
       });
-      console.log("respuesta de backend", response.status);
-      return response.status;
+      console.log("respuesta de backend", response);
+      return response;
     } catch (e) {
       return alert(e);
     }

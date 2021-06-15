@@ -89,28 +89,22 @@ module.exports = {
   // User Log in with Google
   googleLogIn: async (req, res) => {
     try {
-      
       const ticket = await client.verifyIdToken({
         idToken: req.body.token,
         audience: CLIENT_ID,
       });
       //console.log("HASTA AQUI", ticket);
       const payload = ticket.getPayload();
-      const userid = payload['sub'];
+      const userid = payload["sub"];
       //const { name, email } = ticket.getPayload();
       /* const user = await db.user.upsert({
         where: { email: email },
         update: { name, picture },
         create: { name, email, picture },
+        
       }); */
-
-      // Check if already user in databse
-      // if not, signup and send acess toekn
-      // if already, send access token directly.
-      res.status(201);
-      res.json(userid);
-      // console.log(JSON.stringify(userid))
-
+      res.status(201).json(userid);
+      //console.log("USErID", JSON.stringify(userid));
     } catch (error) {
       return error;
     }
