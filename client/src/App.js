@@ -14,7 +14,7 @@ export default function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(0);
   const { token, setToken } = useToken();
 
-  if (!token) {
+  if (isAuthenticated === 0) {
     return (
       <div className="wrapper">
         <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>

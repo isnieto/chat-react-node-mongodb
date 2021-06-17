@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { useAppContext } from "../../services/contextLib";
+import LogoutHook from "../GoogleLogin/GoogleLogout.js";
 import "./Header.css";
 
 import closeIcon from "../../images/source_icons_web-window-close.svg";
@@ -12,7 +13,7 @@ export default function Header() {
   const { isAuthenticated, userHasAuthenticated } = useAppContext();
 
   function handleLogout() {
-    userHasAuthenticated(false);
+    userHasAuthenticated(0);
     sessionStorage.clear();
     history.push("/");
   }
@@ -20,10 +21,11 @@ export default function Header() {
   return (
     <header>
       <h1>Chat App</h1>
-    
-      {isAuthenticated ? (
+      {isAuthenticated === 1 ? (
         <nav>
           <ul>
+          is {isAuthenticated}
+
             <li>
               <a href="/" onClick={handleLogout}>
                 Logout <img class="icon" src={closeIcon} alt="close icon" />
@@ -31,7 +33,11 @@ export default function Header() {
             </li>
           </ul>
         </nav>)
-        :  null}
+        :isAuthenticated === 2 ? (
+          <LogoutHook />
+        
+      )  : null}
+     
     </header>
   );
 }
