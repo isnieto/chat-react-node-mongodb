@@ -6,9 +6,8 @@ import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 import "./Login.css";
 
-export default function Login({ setToken }) {
-  const { userHasAuthenticated, withGoogle } = useAppContext();
-  //const [isGoogle, withGoogle] = useState(false);
+export default function Login({ setToken}) {
+  const { userHasAuthenticated } = useAppContext();
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
@@ -25,7 +24,7 @@ export default function Login({ setToken }) {
           password,
         });
         if (tokenData.token) {
-          userHasAuthenticated(true);
+          userHasAuthenticated(1);
           setToken(tokenData);
         } else {
           // Not token received
@@ -74,7 +73,7 @@ export default function Login({ setToken }) {
               </a>
             </p>
             <h5>or</h5>
-            <GoogleLogin withGoogle={withGoogle} />
+            <GoogleLogin />
           </div>
         </form>
       </div>

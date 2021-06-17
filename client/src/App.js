@@ -11,11 +11,10 @@ import error404 from "./pages/error404";
 import "./App.css";
 
 export default function App() {
-  const [isAuthenticated, userHasAuthenticated] = useState(false);
-  const [isGoogle, withGoogle] = useState(false);
+  const [isAuthenticated, userHasAuthenticated] = useState(0);
   const { token, setToken } = useToken();
 
-  if (isAuthenticated === false) {
+  if (!token) {
     return (
       <div className="wrapper">
         <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
@@ -37,7 +36,7 @@ export default function App() {
   }
   return (
     <div className="wrapper">
-      <AppContext.Provider value={{ isAuthenticated:[isAuthenticated, userHasAuthenticated], isGoogle: [isGoogle, withGoogle] }}>
+      <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
         <Router>
           <Header />
           <Route path="/" exact component={Join} />

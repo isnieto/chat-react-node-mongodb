@@ -20,9 +20,7 @@ export default function GoogleLogin() {
     const data = res.getAuthResponse().id_token;
     const tokenData = userAuth.googleAuth({ data });
     if (tokenData) {
-      userHasAuthenticated(true);
-      withGoogle(true);
-      console.log("Google!!!!")
+      userHasAuthenticated(2);
     }
   };
 
