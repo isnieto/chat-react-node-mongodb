@@ -6,8 +6,6 @@ import "./Header.css";
 
 import closeIcon from "../../images/source_icons_web-window-close.svg";
 
-
-
 export default function Header() {
   const history = useHistory();
   const { isAuthenticated, userHasAuthenticated } = useAppContext();
@@ -24,20 +22,16 @@ export default function Header() {
       {isAuthenticated === 1 ? (
         <nav>
           <ul>
-          is {isAuthenticated}
-
             <li>
               <a href="/" onClick={handleLogout}>
-                Logout <img class="icon" src={closeIcon} alt="close icon" />
+                Logout <img className="icon" src={closeIcon} alt="close icon" />
               </a>
             </li>
           </ul>
-        </nav>)
-        :isAuthenticated === 2 ? (
-          <LogoutHook />
-        
-      )  : null}
-     
+        </nav>
+      ) : isAuthenticated === 2 ? (
+        <LogoutHook />
+      ) : null}
     </header>
   );
 }

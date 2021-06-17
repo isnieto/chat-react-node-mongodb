@@ -11,6 +11,7 @@ function LogoutHooks() {
 
   const onLogoutSuccess = (res) => {
     console.log("Logged out Success");
+    res.session.destroy();
     sessionStorage.clear();
     history.push("/");
     alert("Logged out Successfully ✌");
