@@ -1,7 +1,7 @@
 import React from "react";
 import GoogleLogout from 'react-google-login';
 import { useAppContext } from "../../services/contextLib.js";
-
+import { gapi } from 'gapi-script';
 import { useHistory } from "react-router";
 import "./GoogleLogin.css";
 
@@ -12,12 +12,17 @@ const clientId =
 export default function LogoutHooks() {
   const history = useHistory();
   const { userHasAuthenticated } = useAppContext();
+  
 
   const handleLogoutSuccess = (res) => {
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
     userHasAuthenticated(0);
     console.log("Logged out Success");
     sessionStorage.clear();
-    history.push("/");
+    history.push("/"); 
     alert("Logged out Successfully ✌"); 
   };
 
