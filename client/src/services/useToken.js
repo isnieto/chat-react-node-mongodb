@@ -1,5 +1,4 @@
 // Setting user token so that a session will persist across page refreshes or tabs.
-
 import { useState } from 'react';
 
 export default function useToken() {

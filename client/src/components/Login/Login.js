@@ -6,7 +6,7 @@ import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 import "./Login.css";
 
-export default function Login({ setToken}) {
+export default function Login({ setToken }) {
   const { userHasAuthenticated } = useAppContext();
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");

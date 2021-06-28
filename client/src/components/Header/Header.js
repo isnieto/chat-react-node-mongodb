@@ -29,7 +29,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-      ) : isAuthenticated === 2 ? (
+      ) : isAuthenticated > 1 ? (
         <LogoutHook />
       ) : null}
     </header>
